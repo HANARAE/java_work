@@ -1,11 +1,10 @@
 package basic;
+import java.util.Scanner;
+
 /**
  * 2023.02.20-13.
  * Scanner Quiz
  */
-
-import java.util.Scanner;
-
 
 public class ScannerQuiz {
 
