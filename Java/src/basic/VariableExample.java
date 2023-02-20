@@ -1,3 +1,7 @@
+package basic;
+/**
+ * 2023.02.17-2.
+ */
 
 public class VariableExample {
 
@@ -27,6 +31,7 @@ public class VariableExample {
 		//(처음 만들 때 한번만 가능합니다.)
 		int score = 90;
 //		int score = 95;  (x)
+		
 		/*변수 하나당 값을 하나밖에 대입할 수 없기 때문에
 		  기존 값이 소멸하고 새로운 값이 할당됩니다.*/
 		score = 95;
@@ -36,7 +41,7 @@ public class VariableExample {
 		int myScore = score -20;
 		System.out.println(myScore);
 		
-		//변수의 자료형에 맞지 않는 데이터는 저장이 불가능합니다.
+		//변수의 자료형(데이터 타입)에 맞지 않는 데이터는 저장이 불가능합니다.
 //		int count = "한번";  (x)
 //		int count = 23.5;   (x)
 //		String str = 100;   (x)

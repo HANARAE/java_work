@@ -1,3 +1,7 @@
+package basic;
+/**
+ * 2023.02.17-3.
+ */
 
 public class Identifier {
 
@@ -23,7 +27,7 @@ public class Identifier {
 		//3. 식별자 이름에 공백을 포함할 수 없습니다.
 //		int my birth day = 19930211;  (x)
 		int mybirthday = 19930211;
-		int myBirthDay = 19930211;  //camal case
+		int myBirthDay = 19930211;  //camal case   _로 구분: snake case
 		
 		//4. 식별자 이름에 쓸 수 있는 특수문자는 밑줄(_), 달러기호($) 뿐입니다.
 		//하지만 사용을 권장하지는 않습니다.
