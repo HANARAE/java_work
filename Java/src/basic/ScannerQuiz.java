@@ -6,7 +6,9 @@ import java.util.Scanner;
  * Scanner Quiz
  */
 
+
 import java.util.Scanner;
+
 
 
 public class ScannerQuiz {
