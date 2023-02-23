@@ -46,7 +46,7 @@ public class WhileExample2 {
 		//1~30000까지의 정수 중 258의 배수의 개수를 출력.
 		
 		int a = 1;
-		int count1 = 0;
+		int count1 = 0; //배수의 개수를 기억해 줄 변수.
 		
 		while(a <= 30000) {
 			if(a % 258 == 0) {
@@ -54,7 +54,7 @@ public class WhileExample2 {
 			}
 			a++;
 		}
-		System.out.println("258의 배수의 개수: " + count1);
+		System.out.println("258의 배수의 개수: " + count1 + "개");
 		
 		
 		
@@ -71,7 +71,7 @@ public class WhileExample2 {
 			}
 			b++;
 		}
-		System.out.println("1000의 약수의 개수: " + count2);
+		System.out.printf("1000의 약수의 개수: %d개\n", count2);
 		
 		
 		
