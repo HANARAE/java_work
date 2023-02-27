@@ -45,6 +45,7 @@ public class ArrayInsertQuiz {
 				if(food.equals(foods[j])) {
 					System.out.println("이미 존재하는 음식입니다.");
 					i--;
+					break;
 				} 
 			}
 			
