@@ -1,6 +1,5 @@
 package basic.array;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**     
@@ -30,7 +29,7 @@ public class EmployeeManager {
 			System.out.println("#4. 사원 정보 수정");
 			System.out.println("#5. 사원 정보 삭제");
 			System.out.println("#6. 프로그램 종료");
-			System.out.println("================================================");
+			System.out.println("===================================");
 
 			System.out.print("> ");
 			int menu = sc.nextInt();
@@ -46,25 +45,26 @@ public class EmployeeManager {
 
 				while(true) {
 					boolean flag = false;
-					for(int j=0; j<userNums.length; j++) {
-						if(userNum.equals(userNums[j])) {
+
+					for(int i=0; i<count; i++) {
+						if(userNum.equals(userNums[i])) {
 							System.out.println("이미 존재하는 사번입니다.");
 							flag = true;
 							break;
 						}
 					}
-
-					if(!flag) { //flag == false -> 중복이 발생하지 않았다.
+					if(!flag) {
 						userNums[count] = userNum;
-						System.out.print("이름: ");
+						System.out.print("- 이름: ");
 						names[count] = sc.next();
-						System.out.print("나이: ");
+						System.out.print("- 나이: ");
 						ages[count] = sc.nextInt();
-						System.out.print("부서명: ");
+						System.out.print("- 부서: ");
 						departments[count] = sc.next();
+						System.out.println(names[count] + "님의 정보가 정상적으로 저장되었습니다.");
 						count++;
 						break;
-					} else { //중복이 발생했다.
+					} else {
 						System.out.print("사번 재입력: ");
 						userNum = sc.next();
 					}
@@ -78,44 +78,41 @@ public class EmployeeManager {
 
 				if(userNums[0] == null) {
 					System.out.println("등록된 사원 정보가 없습니다.");
-					break;					
+					System.out.println();
 				} else {
+					System.out.println("========== 전체 사원 정보 ==========");
 					for(int i=0; i<count; i++) {
-						System.out.printf("사번: %s\t", userNums[i]);
-						System.out.printf("이름: %s\t", names[i]);
-						System.out.printf("나이: %d\t", ages[i]);
-						System.out.printf("부서: %s\t", departments[i]);
-						System.out.println();
-
+						System.out.printf("사번: %s  ", userNums[i]);
+						System.out.printf("이름: %s  ", names[i]);
+						System.out.printf("나이: %d  ", ages[i]);
+						System.out.printf("부서: %s\n", departments[i]);
 					}
 				}
-
 
 			} else if(menu == 3) {
 				//입력한 사번에 일치하는 사원의 4가지 정보를 모두 출력하세요.
 				//입력한 사번이 존재하지 않는다면 "조회하신 사원의 정보가 없습니다." 를 출력.
-				System.out.print("검색할 사번: ");
-				String sabun = sc.next();
 
+				System.out.print("조회할 사번: ");
+				String userNum = sc.next();
 
 				boolean flag = false;
-				for(int i=0; i<userNums.length; i++) {
-					if(sabun.equals(userNums[i])) {
-						flag = true;
-						System.out.printf("사번: %s\t", userNums[i]);
-						System.out.printf("이름: %s\t", names[i]);
-						System.out.printf("나이: %d\t", ages[i]);
-						System.out.printf("부서: %s\t", departments[i]);
-						System.out.println();
-						break;
-					} 
 
-					if(!flag) {//사원 정보가 없다.
-						System.out.println("조회하신 사원의 정보가 없습니다.");
+				for(int i=0; i<count; i++) {
+					if(userNum.equals(userNums[i])) {
+						System.out.println("========== 사원 정보 ==========");
+						System.out.printf("사번: %s  ", userNums[i]);
+						System.out.printf("이름: %s  ", names[i]);
+						System.out.printf("나이: %d  ", ages[i]);
+						System.out.printf("부서: %s\n", departments[i]);
+						flag = true;
 						break;
 					}
 				}
-
+				if(!flag) {
+					System.out.println("조회하신 사원의 정보가 없습니다.");
+					System.out.println();
+				}
 
 			} else if(menu == 4) {
 				//해당 사번과 일치하는 사원의 나이와 부서를 선택적으로 변경할 수 있도록
@@ -124,49 +121,44 @@ public class EmployeeManager {
 				//사번이 존재하지 않는다면 없다고 얘기해 주세요.
 
 				System.out.print("수정할 사번: ");
-				String sabun = sc.next();
-				while(true) {
-					boolean flag = false;
-					int idx = 0;
+				String userNum = sc.next();
 
-					for(int i=0; i<userNums.length; i++) {
-						if(sabun.equals(userNums[i])) {
-							flag = true;
-							idx = i;
-						}
+				boolean flag = false;
+				int num = 0;
+				for(int i=0; i<count; i++) {
+					if(userNum.equals(userNums[i])) {
+						num = i;
+						flag = true;
+						break;
 					}
-
-					if(!flag) {
-						System.out.print("사번 재입력: ");
-						sabun = sc.next();
-					} else {
-						System.out.println("1. 나이변경");
-						System.out.println("2. 부서변경");
-						System.out.println("3. 취소");
-						System.out.print("> ");
-						int num = sc.nextInt();
-
-						if(num==1) {
-							System.out.println("변경할 나이를 입력하세요: ");
-							int cAge = sc.nextInt();
-							ages[idx] = cAge;
-							break;
-						} else if(num==2) {
-							System.out.println("변경할 부서를 입력하세요: ");
-							String cDepartment = sc.next();
-							departments[idx] = cDepartment;
-							break;
-						} else if(num==3) {
-							break;
-						} else {
-							System.out.println("잘못 입력하셨습니다.");
-							num = sc.nextInt();
-						}
-
-					}
-
 				}
-
+				if(!flag) {
+					System.out.println("조회하신 사번은 존재하지 않습니다.");
+					System.out.println();
+				} else {
+					System.out.println(names[num] + "님의 정보를 변경합니다.");
+					System.out.print("1. 나이변경  | 2. 부서변경  | 3. 취소");
+					System.out.print("> ");
+					int choice = sc.nextInt();
+					
+					switch(choice) {
+					
+					case 1:
+						System.out.print("변경할 나이: ");
+						ages[num] = sc.nextInt();
+						break;
+					case 2:
+						System.out.print("변경할 부서: ");
+						departments[num] = sc.next();
+						break;
+					case 3:						
+						break;
+					default:
+						System.out.println("잘못 입력하셨습니다.");
+						System.out.println();					
+					}
+					
+				}
 
 			} else if(menu == 5) {
 				//사번을 입력 받아서
@@ -175,50 +167,56 @@ public class EmployeeManager {
 				//y를 눌렀을 시에 삭제가 되도록 코드를 구성하세요.
 				//배열의 크기는 줄이지 않겠습니다. 삭제할 인덱스를 기준으로 뒤에 있는 값들을
 				//앞으로 한칸씩 땡기신 다음 count를 하나 내려주시면 됩니다.
-
+				
 				System.out.print("삭제할 사번: ");
-				String sabun = sc.next();
+				String userNum = sc.next();
+				
 				boolean flag = false;
-
-				outer: while(true) {
-					for(int i=0; i<userNums.length; i++) {
-						if(sabun.equals(userNums[i])) {
-							flag = true;
-							break;
-						}
-					}
-					if(!flag) {
-						System.out.print("사번 재입력: ");
-						sabun = sc.next();
-					} else {
-						System.out.print("정말 삭제하시겠습니까? [Y/N]");
-						String answer = sc.next();
-
-						switch(answer) {
-
-						case "Y": case "y": case "d": case "ㅇ":
-							for(int j=0; j<userNums.length-1; j++) {
-								userNums[j] = userNums[j+1];
-								names[j] = names[j+1];
-								ages[j] = ages[j+1];
-								departments[j] = departments[j+1];
-							}
-							userNums[userNums.length-1] = null;
-							names[userNums.length-1] = null;
-							ages[userNums.length-1] = 0;
-							departments[userNums.length-1] = null;
-							break;
-
-						case "N": case "n": case "s": case "ㄴ":
-
-						}
-						break outer;
+				int num = 0;
+				for(int i=0; i<count; i++) {
+					if(userNum.equals(userNums[i])) {
+						flag = true;
+						num = i;
+						break;
 					}
 				}
+				if(!flag) {
+					System.out.println("조회하신 사번은 존재하지 않습니다.");
+					System.out.println();
+				} else {
+					System.out.print(names[num] + "을(를) 정말 삭제하시겠습니까? [Y/N]");
+					String choice = sc.next();
+					
+					switch(choice) {
+					
+					case "y": case "Y": case "ㅛ":
+						if(num == userNums.length-1) {
+							userNums[num] = null;
+							names[num] = null;
+							ages[num] = 0;
+							departments[num] = null;
+						}
+						for(int i=num; i<count-1; i++) {
+							userNums[i] = userNums[i+1];
+							names[i] = names[i+1];
+							ages[i] = ages[i+1];
+							departments[i] = departments[i+1];
+						}
+						count--;
+						break;
+						
+					default:	
+						System.out.println("삭제를 취소합니다.");
+						break;
+					}
+					
+				}
+
 			} else if(menu == 6) {
 				System.out.println("프로그램을 종료합니다.");
 				sc.close();
-				break; //while true break				
+				break; //while true break		
+				
 			} else {
 				System.out.println("메뉴를 잘못 입력하셨습니다.");
 			}
