@@ -45,7 +45,14 @@ public class MethodExample1 {
 	
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		int total = calcTotal(10);
+		System.out.println(total);
+		
+		System.out.println("1~100까지의 누적합: " + calcTotal(100));
+		
+		
+		
 
 	}
 

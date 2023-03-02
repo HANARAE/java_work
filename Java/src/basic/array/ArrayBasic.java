@@ -77,8 +77,8 @@ public class ArrayBasic {
 		//새롭게 생성해야 한다.
 		String[] names = {"홍길동", "김철수", "박영희"};
 //		names = {"홍길동", "김철수", "박영희", "이뽀삐"}; (x)
-		names = new String[] {"홍길동", "김철수", "박영희", "이뽀삐"};
-		
+		String temp = new String[] {"홍길동", "김철수", "박영희", "이뽀삐"};
+		names = temp;
 		
 		
 	}
