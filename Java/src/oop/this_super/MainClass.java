@@ -21,7 +21,7 @@ public class MainClass {
 		Player p3 = new Player("전사3", 200);
 		p3.characterInfo();
 		
-		System.out.println("------------------");
+		System.out.println("------------------------------------");
 
 		p3.attack(p2);
 		p1.attack(p2);
@@ -41,6 +41,15 @@ public class MainClass {
 		Mage m1 = new Mage("법사짱짱맨");
 		m1.characterInfo();
 		System.out.println();		
+		
+		System.out.println("------------------------------------");
+		
+		w1.attack(h1);
+		h1.attack(m1);
+		
+		
+		
+		
 		
 		
 	}
