@@ -7,7 +7,7 @@ import java.util.Scanner;
  * 2023.02.28-1.
  * 러시안 룰렛 만들기
  */
-public class RussianRulette {
+public class RussianRoulette {
 
 	public static void main(String[] args) {
 

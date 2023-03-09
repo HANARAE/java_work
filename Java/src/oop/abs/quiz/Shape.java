@@ -14,7 +14,7 @@ public abstract class Shape {
 	 */
 
 
-	private String name;
+	private String name; //private를 쓰면 바로 getter setter 만드는게 좋음.
 	double r;
 
 	public Shape(String name, double r) {
@@ -29,6 +29,11 @@ public abstract class Shape {
 		System.out.println("도형이름: " + name);
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 
 	public double getR() {
 		return r;
@@ -40,11 +45,6 @@ public abstract class Shape {
 	}
 
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	
 
 
 }

@@ -3,7 +3,7 @@ package basic.array;
  * 2023.02.27-4.
  * 2차원 배열 QUIZ
  */
-public class Array2DQuit {
+public class Array2DQuiz {
 
 	public static void main(String[] args) {
 
