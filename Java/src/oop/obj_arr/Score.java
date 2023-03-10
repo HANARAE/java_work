@@ -89,27 +89,29 @@ public class Score {
 
 
 	public int getTotal() {
+		this.setTotal();
 		return total;
 	}
 
 
 
 
-	public void setTotal(int total) {
-		this.total = getKor() + getEng() + getMath();
+	public void setTotal() {
+		this.total = kor + eng + math;
 	}
 
 
 
 
 	public double getAvg() {
+		this.setAvg();
 		return avg;
 	}
 
 
 
 
-	public void setAvg(double avg) {
+	public void setAvg() {
 		this.avg = total/3.0;
 	}
 
@@ -117,7 +119,7 @@ public class Score {
 	
 
 	void scoreInfo() {
-		System.out.println("*** " + name + "학생의 정보 ***");
+		System.out.println("*** " + name + " 학생의 정보 ***");
 		System.out.println("# 국어점수: " + kor);
 		System.out.println("# 영어점수: " + eng);
 		System.out.println("# 수학점수: " + math);

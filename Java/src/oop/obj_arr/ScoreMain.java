@@ -26,7 +26,10 @@ public class ScoreMain {
 
 
 			for(int i=0; i<100; i++) {
-
+				System.out.println("*** 학생 점수 입력 프로그램 ***");
+				System.out.println("'그만'을 입력하면 종료됩니다.\n");
+				
+				
 				//비어있는 객체를 하나 생성.
 				Score score = new Score();
 
@@ -34,6 +37,7 @@ public class ScoreMain {
 				System.out.print("이름: ");
 				score.setName(sc.next());
 				if(score.getName().equals("그만")) {
+					System.out.println("입력을 종료합니다.");
 					break ;
 				}
 				System.out.print("국어점수: ");
@@ -56,14 +60,22 @@ public class ScoreMain {
 			}
 
 
-		
+		/*
 		for(int i=0; i<scores.length; i++) {
 			if(scores[i] == null) {
 				break;
 			}
 			scores[i].scoreInfo();
 		}
-
+		 */
+		
+		for(Score s : scores) {
+			if(s == null) {
+				break;
+			}
+			s.scoreInfo();
+			System.out.println("---------------------------");
+		}
 
 
 		sc.close();
